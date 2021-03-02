@@ -24,7 +24,7 @@ body {
   --clr-black: #272727;
   --clr-gray: #575757;
   --clr-light__gray: #909090;
-  --clr-dark__white: #e3e3e3;
+  --clr-dark__white: #dddddd;
   --clr-white: #f1f1f1;
   --clr-purple: #5900ff;
 

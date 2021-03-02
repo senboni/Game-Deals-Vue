@@ -20,11 +20,10 @@ footer {
     justify-content: center;
 
     background: var(--clr-dark__white);
-    margin: 2em 0 0 0;
-    padding: 4em 0;
+    margin: 2rem 0 0 0;
+    padding: 4rem 0;
 
     color: var(--clr-light__gray);
-    font-size: 0.9rem;
     font-weight: 400;
     word-spacing: 0.25rem;
 }

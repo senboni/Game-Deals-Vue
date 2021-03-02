@@ -17,7 +17,7 @@ export default {
 
 <style scoped>
 header {
-    padding: 1rem;
+    padding: 0 1rem;
     font-size: 1.25rem;
     font-weight: 800;
 }
@@ -27,17 +27,26 @@ nav {
     justify-content: space-between;
     overflow: hidden;
     white-space: nowrap;
+
+    margin: 0.75rem 0;
 }
 
 nav a {
-    color: var(--clr-black);
+    color: var(--clr-light__gray);
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-right: 1rem;
+
+    padding: 0.5em 1em;
+    border-radius: 10px;
 }
 
 nav a:last-child {
     margin-right: 0;
+}
+
+nav a:hover {
+    background: var(--clr-dark__white);
+    color: var(--clr-gray);
 }
 
 nav a.router-link-exact-active {
