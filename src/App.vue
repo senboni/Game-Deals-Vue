@@ -33,7 +33,7 @@ body {
 }
 
 main {
-  margin: 0 1em;
+  margin: 0 1rem;
 }
 
 a {

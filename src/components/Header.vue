@@ -1,9 +1,12 @@
 <template>
-    <div id="nav">
-        <router-link to="/">Game Deals</router-link>
-        <router-link to="/about">About</router-link>
-        <router-link to="/about">Something</router-link>
-    </div>
+    <header>
+        <nav>
+            <router-link to="/">Game Deals</router-link>
+            <router-link to="/about">About</router-link>
+            <router-link to="/help">Help</router-link>
+            <router-link to="/contact">Contact</router-link>
+        </nav>
+    </header>
 </template>
 
 <script>
@@ -13,22 +16,31 @@ export default {
 </script>
 
 <style scoped>
-#nav {
-    padding: 1em 0;
+header {
+    padding: 1rem;
     font-size: 1.25rem;
     font-weight: 800;
 }
 
-a {
-    color: var(--clr-black);
-    margin-right: 1em;
+nav {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
-a:last-child {
+nav a {
+    color: var(--clr-black);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 1rem;
+}
+
+nav a:last-child {
     margin-right: 0;
 }
 
-a.router-link-exact-active {
-    color: #5900ff;
+nav a.router-link-exact-active {
+    color: var(--clr-purple);
 }
 </style>
