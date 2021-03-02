@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="title__text">
     {{msg}}
   </div>
 </template>
@@ -14,8 +14,8 @@ export default {
 </script>
 
 <style scoped>
-.header {
-  color: gray;
+.title__text {
+  color: var(--clr-gray);
   font-weight: 600;
   font-size: 1.5rem;
 }

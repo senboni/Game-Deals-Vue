@@ -1,9 +1,9 @@
 <template>
   <Title msg="Today's Deals"/>
 
-  <div class="yo">deal 1</div>
-  <div class="yo">deal 1</div>
-  <div class="yo">deal 1</div>
+  <div v-for="deal in deals" :key="deal.id">
+    {{deal.name}} {{deal.id}}
+  </div>
 </template>
 
 <script>
@@ -13,6 +13,24 @@ export default {
   name: 'Home',
   components: {
     Title
+  },
+  data() {
+    return {
+      deals: [
+        {
+          id: 1,
+          name: "deald"
+        },
+        {
+          id: 2,
+          name: "dealdd"
+        },
+        {
+          id: 3,
+          name: "dealaa"
+        },
+      ]
+    }
   }
 }
 </script>
