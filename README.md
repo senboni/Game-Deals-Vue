@@ -1,19 +1,3 @@
-# game-deals-vue
+# Game-Deals-Vue
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+A frontend Vue.js app using CheapShark API to display information about game deals and prices.
