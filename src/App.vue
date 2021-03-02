@@ -1,15 +1,20 @@
 <template>
   <Header />
-  <router-view/>
+  <main>
+    <router-view/>
+  </main>
+  <Footer />
 </template>
 
 <script>
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export default {
   name: 'App',
   components: {
-    Header
+    Header,
+    Footer
   }
 }
 </script>
@@ -18,12 +23,22 @@ export default {
 body {
   --clr-black: #272727;
   --clr-gray: #575757;
+  --clr-light__gray: #909090;
+  --clr-dark__white: #e3e3e3;
+  --clr-white: #f1f1f1;
+  --clr-purple: #5900ff;
 
+  margin: 0;
+  background: var(--clr-white);
+}
+
+main {
   margin: 0 1em;
 }
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 #app {
