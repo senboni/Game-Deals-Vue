@@ -2,7 +2,9 @@
     <footer>
         <p>
             Game Deals ©
-            <a href="https://apidocs.cheapshark.com/">CheapShark</a>
+            <a href="https://apidocs.cheapshark.com/" target="_blank">
+                CheapShark
+            </a>
             2021
         </p>
     </footer>

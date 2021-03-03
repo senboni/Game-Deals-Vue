@@ -17,7 +17,6 @@ export default {
 
 <style scoped>
 header {
-    padding: 0 1rem;
     font-size: 1.25rem;
     font-weight: 800;
 }
@@ -36,7 +35,7 @@ nav a {
     overflow: hidden;
     text-overflow: ellipsis;
 
-    padding: 0.5em 1em;
+    padding: 0.5rem 1rem;
     border-radius: 10px;
 }
 

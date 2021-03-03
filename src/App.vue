@@ -26,7 +26,7 @@ body {
   --clr-light__gray: #909090;
   --clr-dark__white: #dddddd;
   --clr-white: #f1f1f1;
-  --clr-purple: #5900ff;
+  --clr-purple: #8500ff;
 
   margin: 0;
   background: var(--clr-white);
