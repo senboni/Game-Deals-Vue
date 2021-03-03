@@ -18,5 +18,6 @@ export default {
   color: var(--clr-gray);
   font-weight: 600;
   font-size: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 </style>
