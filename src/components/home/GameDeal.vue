@@ -86,6 +86,11 @@ export default {
 
 			var date = new Date(this.deal.releaseDate * 1000)
 			return `${date.getUTCFullYear()}/${date.getUTCMonth()}/${date.getUTCDate()}`
+		},
+		thumb() {
+			return "background-image: " +
+			"linear-gradient(90deg, rgba(241, 241, 241, 1) 0%, rgba(241, 241, 241, 0) 180%)," + 
+			`url(${this.deal.thumb})`
 		}
 	}
 }
@@ -100,11 +105,11 @@ export default {
 }
 
 .game-deal:hover {
-	background: var(--clr-dark__white);
+	background-color: var(--clr-dark__white);
 }
 
 .expanded {
-	background: linear-gradient(312deg, var(--clr-white) 0%, var(--clr-dark__white) 100%);
+	background: linear-gradient(312deg, var(--clr-dark__white) 0%, var(--clr-dark__white) 100%);
 }
 
 .expanded:hover {

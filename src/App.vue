@@ -21,13 +21,13 @@ export default {
 
 <style>
 * {
-	--clr-black: #272727;
-	--clr-gray: #575757;
-	--clr-light__gray: #909090;
-	--clr-silver: #c5c5c5;
-	--clr-dark__white: #dcdcdc;
-	--clr-white: #f1f1f1;
-	--clr-purple: #8500ff;
+	--clr-black: #242527;
+	--clr-gray: #4a4e53;
+	--clr-light__gray: #84888f;
+	--clr-silver: #babec5;
+	--clr-dark__white: #dce0e4;
+	--clr-white: #ecf0f5;
+	--clr-purple: #7a00ff;
 
 	margin: 0;
 	padding: 0;
@@ -46,7 +46,14 @@ body {
 }
 
 main {
-	margin: 0 1rem;
+	padding: 0 1rem;
+}
+
+@media (min-width: 960px) {
+	main {
+		max-width: 960px;
+		margin: 0 auto;
+	}
 }
 
 a {
