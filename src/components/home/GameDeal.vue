@@ -66,7 +66,7 @@ export default {
 			return `$${this.deal.salePrice}`
 		},
 		steamRating() {
-			if(this.deal.steamRating < 1) {
+			if(this.deal.steamRating > 0) {
 				return this.deal.steamRatingText
 			}
 
