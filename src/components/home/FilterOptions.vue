@@ -51,7 +51,6 @@ select {
     border: 0;
     font-size: 1rem;
     font-weight: 600;
-    color: var(--clr-gray);
 }
 
 select:focus {

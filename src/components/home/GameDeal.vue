@@ -19,7 +19,7 @@
 				{{normalPrice}}
 			</div>
 		</div>
-		<div v-if="expanded === true">
+		<div :class="[expanded ? 'collapsible' : 'collapsible collapsed']">
 			<div class="detail">
 				<div>Release Date</div>
 				<strong>{{releaseDate}}</strong>
@@ -70,18 +70,18 @@ export default {
 				return this.deal.steamRatingText
 			}
 
-			return String.empty
+			return ""
 		},
 		metacritic() {
 			if(this.deal.metacriticScore > 0) {
 				return this.deal.metacriticScore
 			}
 
-			return String.empty
+			return ""
 		},
 		releaseDate() {
 			if(this.deal.releaseDate == 0) {
-				return String.empty
+				return ""
 			}
 
 			var date = new Date(this.deal.releaseDate * 1000)
@@ -95,6 +95,8 @@ export default {
 .game-deal {
 	padding: 1.25em;
 	border-radius: 10px;
+
+	animation: fadeIn 0.3s ease-in-out;
 }
 
 .game-deal:hover {
@@ -120,7 +122,6 @@ export default {
 
 .title {
 	align-self: end;
-	color: var(--clr-gray);
 	font-size: 1.25rem;
 	font-weight: 700;
 }
@@ -167,5 +168,16 @@ export default {
 
 	padding: 0.25em 0;
 	color: var(--clr-light__gray);
+}
+
+.collapsible {
+	overflow: hidden;
+	height: auto;
+	max-height: 10em;
+	transition: max-height 0.25s ease-in-out;
+}
+
+.collapsed {
+	max-height: 0;
 }
 </style>

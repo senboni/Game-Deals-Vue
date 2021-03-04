@@ -20,33 +20,38 @@ export default {
 </script>
 
 <style>
-body {
-  --clr-black: #272727;
-  --clr-gray: #575757;
-  --clr-light__gray: #909090;
-  --clr-silver: #c5c5c5;
-  --clr-dark__white: #dcdcdc;
-  --clr-white: #f1f1f1;
-  --clr-purple: #8500ff;
+* {
+	--clr-black: #272727;
+	--clr-gray: #575757;
+	--clr-light__gray: #909090;
+	--clr-silver: #c5c5c5;
+	--clr-dark__white: #dcdcdc;
+	--clr-white: #f1f1f1;
+	--clr-purple: #8500ff;
 
-  margin: 0;
-  background: var(--clr-white);
-}
-
-main {
-  margin: 0 1rem;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 #app {
-  font-family: 'Lato', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: var(--clr-gray);
+}
+
+body {
+	background: var(--clr-white);
+}
+
+main {
+	margin: 0 1rem;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
 }
 
 .purple-text {
@@ -55,5 +60,23 @@ a {
 
 .gray-text {
 	color: var(--clr-gray)
+}
+
+@-webkit-keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 100;
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 100;
+	}
 }
 </style>

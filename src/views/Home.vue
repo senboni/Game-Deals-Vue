@@ -5,15 +5,16 @@
 		<FilterOptions :title="'Deals Per Page'" :options="sizeOptions" @select-option="selectPageSize" />
 	</div>
 
-	<div v-if="loading === false">
+	<div v-if="loading === true">
+		<Spinner />
+	</div>
+	<template v-else>
 		<GameDeal v-for="deal in deals" :key="deal.dealID" :deal="deal" />
-	</div>
-	<div v-else>
-		Loading...
-	</div>
+	</template>
 </template>
 
 <script>
+import Spinner from '@/components/shared/Spinner' 
 import Title from '@/components/shared/Title'
 import FilterOptions from '@/components/home/FilterOptions'
 import GameDeal from '@/components/home/GameDeal'
@@ -22,6 +23,7 @@ import axios from 'axios'
 export default {
 	name: 'Home',
 	components: {
+		Spinner,
 		Title,
 		FilterOptions,
 		GameDeal
