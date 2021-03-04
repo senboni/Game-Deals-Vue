@@ -1,63 +1,60 @@
 <template>
-  <Title msg="Today's Deals"/>
+	<Title msg="Today's Deals"/>
 
-  <div class="filter__options">
-    <FilterOptions :title="'Deals Per Page'" :options="sizeOptions" @select-option="selectPageSize" />
-  </div>
-  
-  <div v-if="loading === false">
-    <div v-for="deal in deals" :key="deal.dealID">
-      {{deal.title}} {{deal.normalPrice}} {{deal.salePrice}}
-    </div>
-  </div>
-  <div v-else>
-    Loading...
-  </div>
+	<div class="filter__options">
+		<FilterOptions :title="'Deals Per Page'" :options="sizeOptions" @select-option="selectPageSize" />
+	</div>
+
+	<div v-if="loading === false">
+		<GameDeal v-for="deal in deals" :key="deal.dealID" :deal="deal" />
+	</div>
+	<div v-else>
+		Loading...
+	</div>
 </template>
 
 <script>
 import Title from '@/components/shared/Title'
 import FilterOptions from '@/components/home/FilterOptions'
+import GameDeal from '@/components/home/GameDeal'
 import axios from 'axios'
 
 export default {
-    name: 'Home',
-    components: {
-        Title,
-        FilterOptions
-    },
-    data() {
-      return {
-        loading: false,
-        pageNumber: "1",
-        pageSize: "5",
-        sizeOptions: ["5", "10", "15"],
-        deals: []
-      }
-    },
-    mounted() {
-      this.getGameDeals()
-    },
-    methods: {
-      selectPageSize(option) {
-        this.pageSize = option
-        this.getGameDeals()
-      },
-      getGameDeals() {
-        this.loading = true
+	name: 'Home',
+	components: {
+		Title,
+		FilterOptions,
+		GameDeal
+	},
+	data() {
+		return {
+			loading: false,
+			pageNumber: "1",
+			pageSize: Number,
+			sizeOptions: ["5", "10", "15"],
+			deals: []
+		}
+	},
+	methods: {
+		selectPageSize(option) {
+			this.pageSize = option
+			this.getGameDeals()
+		},
+		getGameDeals() {
+			this.loading = true
 
-        axios.get(`https://www.cheapshark.com/api/1.0/deals?pageNumber=${this.pageNumber}&pageSize=${this.pageSize}`)
-          .then(res => {
-              this.deals = res.data
-          })
-          .catch(err => {
-              console.log(err)
-          })
-          .then(() => {
-              this.loading = false
-          })
-      }
-    }
+			axios.get(`https://www.cheapshark.com/api/1.0/deals?pageNumber=${this.pageNumber}&pageSize=${this.pageSize}`)
+				.then(res => {
+					this.deals = res.data
+				})
+				.catch(err => {
+					console.log(err)
+				})
+				.then(() => {
+					this.loading = false
+				})
+		}
+	}
 }
 </script>
 

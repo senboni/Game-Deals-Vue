@@ -24,7 +24,8 @@ body {
   --clr-black: #272727;
   --clr-gray: #575757;
   --clr-light__gray: #909090;
-  --clr-dark__white: #dddddd;
+  --clr-silver: #c5c5c5;
+  --clr-dark__white: #dcdcdc;
   --clr-white: #f1f1f1;
   --clr-purple: #8500ff;
 
@@ -46,5 +47,13 @@ a {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+.purple-text {
+	color: var(--clr-purple)
+}
+
+.gray-text {
+	color: var(--clr-gray)
 }
 </style>
