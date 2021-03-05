@@ -20,17 +20,20 @@
 			</div>
 		</div>
 		<div :class="[expanded ? 'collapsible' : 'collapsible collapsed']">
-			<div class="detail">
-				<div>Release Date</div>
-				<strong>{{releaseDate}}</strong>
-			</div>
-			<div class="detail">
-				<div>Steam Rating</div>
-				<strong>{{steamRating}}</strong>
-			</div>
-			<div class="detail">
-				<div>Metacritic Score</div>
-				<strong>{{metacritic}}</strong>
+			<div class="details">
+			<div class="thumb" :style="thumb"></div>
+				<div class="detail">
+					<div>Release Date</div>
+					<strong>{{releaseDate}}</strong>
+				</div>
+				<div class="detail">
+					<div>Steam Rating</div>
+					<strong>{{steamRating}}</strong>
+				</div>
+				<div class="detail">
+					<div>Metacritic Score</div>
+					<strong>{{metacritic}}</strong>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -70,18 +73,18 @@ export default {
 				return this.deal.steamRatingText
 			}
 
-			return ""
+			return "N/A"
 		},
 		metacritic() {
 			if(this.deal.metacriticScore > 0) {
 				return this.deal.metacriticScore
 			}
 
-			return ""
+			return "N/A"
 		},
 		releaseDate() {
 			if(this.deal.releaseDate == 0) {
-				return ""
+				return "N/A"
 			}
 
 			var date = new Date(this.deal.releaseDate * 1000)
@@ -89,7 +92,7 @@ export default {
 		},
 		thumb() {
 			return "background-image: " +
-			"linear-gradient(90deg, rgba(241, 241, 241, 1) 0%, rgba(241, 241, 241, 0) 180%)," + 
+			// "linear-gradient(90deg, rgba(241, 241, 241, 0.1) 0%, rgba(241, 241, 241, 0) 180%)," +
 			`url(${this.deal.thumb})`
 		}
 	}
@@ -167,12 +170,19 @@ export default {
 	font-weight: 600;
 }
 
-.detail {
+.details {
 	display: grid;
-	grid-template-columns: 35% auto;
+	grid-template-columns: 10% 45% 45%;
+}
 
-	padding: 0.25em 0;
+.detail {
 	color: var(--clr-light__gray);
+	display: grid;
+	grid-template-columns: 40% 60%;
+}
+
+.detail * {
+	padding: 0.25em 0 1em 0.75em;
 }
 
 .collapsible {
@@ -184,5 +194,13 @@ export default {
 
 .collapsed {
 	max-height: 0;
+}
+
+.thumb {
+	grid-area: 1 / 1 / 3 / 2;
+
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
 }
 </style>
