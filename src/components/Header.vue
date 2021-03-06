@@ -36,7 +36,7 @@ nav a {
     text-overflow: ellipsis;
 
     padding: 0.5rem 1rem;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
 }
 
 nav a:last-child {

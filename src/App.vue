@@ -21,6 +21,9 @@ export default {
 
 <style>
 * {
+	--border-radius: 10px;
+	--box-shadow: 4px 3px 15px 0px var(--clr-silver);
+
 	--clr-black: #242527;
 	--clr-gray: #4a4e53;
 	--clr-light__gray: #84888f;
@@ -32,6 +35,16 @@ export default {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
 }
 
 #app {

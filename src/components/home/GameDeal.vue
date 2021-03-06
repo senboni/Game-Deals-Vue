@@ -91,9 +91,7 @@ export default {
 			return `${date.getUTCFullYear()}/${date.getUTCMonth()}/${date.getUTCDate()}`
 		},
 		thumb() {
-			return "background-image: " +
-			// "linear-gradient(90deg, rgba(241, 241, 241, 0.1) 0%, rgba(241, 241, 241, 0) 180%)," +
-			`url(${this.deal.thumb})`
+			return `background-image: url(${this.deal.thumb})`
 		}
 	}
 }
@@ -102,7 +100,7 @@ export default {
 <style scoped>
 .game-deal {
 	padding: 1.25em;
-	border-radius: 10px;
+	border-radius: var(--border-radius);
 
 	animation: fadeIn 0.3s ease-in-out;
 }
@@ -144,10 +142,10 @@ export default {
 	grid-template-columns: 1fr auto;
 	justify-items: end;
 	
-	-webkit-box-shadow: 4px 3px 15px 0px var(--clr-silver);
-	-moz-box-shadow: 4px 3px 15px 0px var(--clr-silver);
-	box-shadow: 4px 3px 15px 0px var(--clr-silver);
-	border-radius: 10px;
+	-webkit-box-shadow: var(--box-shadow);
+	-moz-box-shadow: var(--box-shadow);
+	box-shadow: var(--box-shadow);
+	border-radius: var(--border-radius);
 	padding: 0.6em 0.4em;
 }
 
