@@ -2,7 +2,7 @@
 	<Title msg="Today's Deals"/>
 
 	<div class="filter__options">
-		<Select :title="'Deals Per Page'" :options="sizeOptions" @select-option="selectPageSize" />
+		<Select :title="'Per Page'" :options="sizeOptions" @select-option="selectPageSize" />
 	</div>
 
 	<div v-if="loading === true">
@@ -64,14 +64,6 @@ export default {
 .filter__options {
   display: inline-block;
   margin-bottom: 0.5em;
-}
-
-.filter__options * {
-  margin-right: 0.5em;
-}
-
-.filter__options *:last-child {
-  margin-right: 0;
 }
 
 .yo {
