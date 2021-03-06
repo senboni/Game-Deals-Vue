@@ -1,5 +1,5 @@
 <template>
-	<div :class="[expanded ? 'game-deal expanded' : 'game-deal']">
+	<div :class="[expanded ? 'game-deal expanded' : 'game-deal']" tabindex="0">
 		<div class="heading" @click="showDetails">
 			<div class="title">
 				{{deal.title}}
@@ -109,6 +109,10 @@ export default {
 
 .game-deal:hover {
 	background-color: var(--clr-dark__white);
+}
+
+.game-deal:focus {
+	outline-color: var(--clr-silver);
 }
 
 .expanded {
