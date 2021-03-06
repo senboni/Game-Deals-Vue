@@ -91,9 +91,7 @@ export default {
 			return `${date.getUTCFullYear()}/${date.getUTCMonth()}/${date.getUTCDate()}`
 		},
 		thumb() {
-			return "background-image: " +
-			// "linear-gradient(90deg, rgba(241, 241, 241, 0.1) 0%, rgba(241, 241, 241, 0) 180%)," +
-			`url(${this.deal.thumb})`
+			return `background-image: url(${this.deal.thumb})`
 		}
 	}
 }

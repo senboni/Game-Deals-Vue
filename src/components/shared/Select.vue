@@ -1,17 +1,14 @@
 <template>
-	<div id="custom-select" :class="[expanded ? 'noselect shadow' : 'noselect']">
-		<!-- <div class="title">{{title}}</div> -->
+	<div id="custom-select" class="noselect">
 		<div class="container" @click="toggleExpand">
-				<div class="selected">{{title}}: {{selected}}</div>
-				<i :class="[expanded ? 'fas fa-chevron-up' : 'fas fa-chevron-down']"></i>
+			<div class="selected">{{title}}: {{selected}}</div>
+			<i :class="[expanded ? 'fas fa-chevron-up' : 'fas fa-chevron-down']"></i>
+		</div>
+		<div :class="[expanded ? 'options' : 'options collapsed']">
+			<div v-for="option in optionsExceptSelected" :key="option" @click="selectOption(option)" class="option">
+				{{option}}
 			</div>
-		<template v-if="expanded">
-			<div class="options">
-				<div v-for="option in optionsExceptSelected" :key="option" @click="selectOption(option)" class="option">
-					{{option}}
-				</div>
-			</div>
-		</template>
+		</div>
 	</div>
 </template>
 
@@ -99,6 +96,15 @@ export default {
 	margin-top: 0.25em;
 	background: var(--clr-dark__white);
 	border-radius: var(--border-radius);
+	box-shadow: var(--box-shadow);
+
+	max-height: 10em;
+	overflow: hidden;
+	transition: max-height 0.15s ease-in-out;
+}
+
+.collapsed {
+	max-height: 0;
 }
 
 .option {
@@ -116,9 +122,5 @@ export default {
 	border-bottom-left-radius: var(--border-radius);
 	border-bottom-right-radius: var(--border-radius);
 	padding-bottom: 0.25em;
-}
-
-.shadow > * {
-	box-shadow: var(--box-shadow);
 }
 </style>
