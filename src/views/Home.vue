@@ -2,7 +2,7 @@
 	<Title msg="Today's Deals"/>
 
 	<div class="filter__options">
-		<FilterOptions :title="'Deals Per Page'" :options="sizeOptions" @select-option="selectPageSize" />
+		<Select :title="'Deals Per Page'" :options="sizeOptions" @select-option="selectPageSize" />
 	</div>
 
 	<div v-if="loading === true">
@@ -16,7 +16,7 @@
 <script>
 import Spinner from '@/components/shared/Spinner' 
 import Title from '@/components/shared/Title'
-import FilterOptions from '@/components/home/FilterOptions'
+import Select from '@/components/shared/Select'
 import GameDeal from '@/components/home/GameDeal'
 import axios from 'axios'
 
@@ -25,7 +25,7 @@ export default {
 	components: {
 		Spinner,
 		Title,
-		FilterOptions,
+		Select,
 		GameDeal
 	},
 	data() {

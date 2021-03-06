@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name: 'FilterOptions',
+    name: 'Select',
     props: {
         title: String,
         options: Array
