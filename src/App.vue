@@ -99,4 +99,8 @@ a {
 		opacity: 100;
 	}
 }
+
+input {
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+}
 </style>

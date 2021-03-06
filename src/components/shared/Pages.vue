@@ -22,6 +22,9 @@
 		>
 			{{numberOfPages}}
 		</div>
+
+		<label for="enterPageInput">Enter Page</label>
+		<input id="enterPageInput" type="number" min="1" :max="numberOfPages" />
 	</div>
 </template>
 
@@ -76,9 +79,7 @@ export default {
 
 .number {
 	width: 3em;
-	height: 3em;
 	border-radius: 50%;
-	padding: 0.75rem;
 	text-align: center;
 }
 
@@ -94,5 +95,24 @@ export default {
 
 .dots {
 	letter-spacing: 0.25em;
+}
+
+.container > * {
+	height: 3em;
+	padding: 0.75em;
+}
+
+input {
+	max-width: 4em;
+	background: var(--clr-dark__white);
+	color: var(--clr-light__gray);
+	border-color: transparent;
+	border-radius: 10px;
+	font-weight: 600;
+	font-size: 1rem;
+}
+
+input:focus {
+	outline-color: var(--clr-silver);
 }
 </style>
