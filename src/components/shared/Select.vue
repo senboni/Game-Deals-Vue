@@ -2,7 +2,7 @@
 	<div id="custom-select" class="noselect">
 		<div class="container" @click="toggleExpand">
 			<div class="selected">{{title}}: {{selected}}</div>
-			<i :class="[expanded ? 'fas fa-chevron-up' : 'fas fa-chevron-down']"></i>
+			<i :class="[expanded ? 'rotated' : '', 'fas fa-chevron-down rotate']"></i>
 		</div>
 		<div :class="[expanded ? 'options' : 'options collapsed']">
 			<div v-for="option in optionsExceptSelected" :key="option" @click="selectOption(option)" class="option">
@@ -122,5 +122,13 @@ export default {
 	border-bottom-left-radius: var(--border-radius);
 	border-bottom-right-radius: var(--border-radius);
 	padding-bottom: 0.25em;
+}
+
+.rotate {
+	transition: transform 0.3s ease-in-out;
+}
+
+.rotated {
+	transform: rotate(180deg) translateY(1px);
 }
 </style>
