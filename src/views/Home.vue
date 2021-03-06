@@ -12,7 +12,7 @@
 		<GameDeal v-for="deal in deals" :key="deal.dealID" :deal="deal" />
 	</template>
 
-	<Pages :currentPage="pageNumber" :numberOfPages="5" />
+	<Pages :currentPage="Number(pageNumber)" :numberOfPages="Number(60)" @select-page="selectPageNumber" />
 </template>
 
 <script>
@@ -44,6 +44,10 @@ export default {
 	methods: {
 		selectPageSize(option) {
 			this.pageSize = option
+			this.getGameDeals()
+		},
+		selectPageNumber(page) {
+			this.pageNumber = page
 			this.getGameDeals()
 		},
 		getGameDeals() {

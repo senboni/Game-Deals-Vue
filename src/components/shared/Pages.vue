@@ -1,13 +1,22 @@
 <template>
 	<div class="container">
+		<div @click="gotoPage(1)" :class="[1 == currentPage ? 'current-page' : '', 'number']">
+			{{1}}
+		</div>
+
+		<div v-if="notCloseToFirstPage" class="dots">...</div>
+
 		<template v-for="number in numberOptions" :key="number">
-			<div v-if="number > 0"
+			<div v-if="isInPageSpan(number)" @click="gotoPage(number)"
 				:class="[number == currentPage ? 'current-page' : '', 'number']">
 				{{number}}
 			</div>
 		</template>
-		<div class="dots">...</div>
-		<div :class="[number == currentPage ? 'current-page' : '', 'number']">
+
+		<div v-if="notCloseToLastPage" class="dots">...</div>
+
+		<div :class="[numberOfPages == currentPage ? 'current-page' : '', 'number']"
+			@click="gotoPage(numberOfPages)">
 			{{numberOfPages}}
 		</div>
 	</div>
@@ -23,16 +32,39 @@ export default {
 	emits: ['select-page'],
 	data() {
 		return {
+			showPagesOffset: 3
 		}
 	},
 	mounted() {
 	},
 	methods: {
+		gotoPage(pageNum) {
+			this.$emit('select-page', pageNum)
+		},
+		isInPageSpan(number) {
+			return number > 1 && number < this.numberOfPages
+		}
 	},
 	computed: {
 		numberOptions() {
 			const cp = Number(this.currentPage)
-			return [cp-2, cp-1, cp, cp+1, cp+2]
+			let arrayy = []
+
+			for (let i = this.showPagesOffset-1; i > 0; i--) {
+				arrayy.push(cp-i)
+			}
+
+			for (let i = 0; i < this.showPagesOffset; i++) {
+				arrayy.push(cp+i)
+			}
+
+			return arrayy
+		},
+		notCloseToFirstPage() {
+			return (this.currentPage-this.showPagesOffset) > 1
+		},
+		notCloseToLastPage() {
+			return (this.currentPage+this.showPagesOffset) < this.numberOfPages
 		}
 	}
 }
