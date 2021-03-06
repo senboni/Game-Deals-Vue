@@ -175,6 +175,7 @@ export default {
 .details {
 	display: grid;
 	grid-template-columns: 10% 45% 45%;
+	margin-top: 1em;
 }
 
 .detail {

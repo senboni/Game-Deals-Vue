@@ -1,8 +1,11 @@
 <template>
-	<Title msg="Today's Deals"/>
+	<Title text="Today's Deals" fontSize="1.5rem" />
 
 	<div class="filter__options">
-		<Select :title="'Per Page'" :options="sizeOptions" @select-option="selectPageSize" />
+		<Select :title="'Per Page'"
+			:options="sizeOptions"
+			@select-option="selectPageSize"
+		/>
 	</div>
 
 	<div v-if="loading === true">
@@ -12,7 +15,11 @@
 		<GameDeal v-for="deal in deals" :key="deal.dealID" :deal="deal" />
 	</template>
 
-	<Pages :currentPage="Number(pageNumber)" :numberOfPages="Number(60)" @select-page="selectPageNumber" />
+	<Pages :currentPage="Number(pageNumber)" 
+		:numberOfPages="Number(60)"
+		:showPagesOffset="Number(3)"
+		@select-page="selectPageNumber" 
+	/>
 </template>
 
 <script>
@@ -72,9 +79,5 @@ export default {
 .filter__options {
   display: inline-block;
   margin-bottom: 0.5em;
-}
-
-.yo {
-  color: black;
 }
 </style>
