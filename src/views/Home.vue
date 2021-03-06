@@ -11,14 +11,17 @@
 	<template v-else>
 		<GameDeal v-for="deal in deals" :key="deal.dealID" :deal="deal" />
 	</template>
+
+	<Pages :currentPage="pageNumber" :numberOfPages="5" />
 </template>
 
 <script>
+import axios from 'axios'
 import Spinner from '@/components/shared/Spinner' 
 import Title from '@/components/shared/Title'
 import Select from '@/components/shared/Select'
 import GameDeal from '@/components/home/GameDeal'
-import axios from 'axios'
+import Pages from '@/components/shared/Pages'
 
 export default {
 	name: 'Home',
@@ -26,7 +29,8 @@ export default {
 		Spinner,
 		Title,
 		Select,
-		GameDeal
+		GameDeal,
+		Pages
 	},
 	data() {
 		return {
