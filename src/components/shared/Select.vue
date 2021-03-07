@@ -84,7 +84,7 @@ export default {
 }
 
 .selected {
-	margin: -2px 5px 0 0;
+	margin-right: 5px;
 }
 
 .container, .options {

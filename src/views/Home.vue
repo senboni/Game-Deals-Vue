@@ -1,8 +1,11 @@
 <template>
-	<Title msg="Today's Deals"/>
+	<Title text="Today's Deals" fontSize="1.5rem" />
 
 	<div class="filter__options">
-		<Select :title="'Per Page'" :options="sizeOptions" @select-option="selectPageSize" />
+		<Select :title="'Per Page'"
+			:options="sizeOptions"
+			@select-option="selectPageSize"
+		/>
 	</div>
 
 	<div v-if="loading === true">
@@ -11,14 +14,21 @@
 	<template v-else>
 		<GameDeal v-for="deal in deals" :key="deal.dealID" :deal="deal" />
 	</template>
+
+	<Pages :currentPage="Number(pageNumber)" 
+		:numberOfPages="Number(60)"
+		:showPagesOffset="Number(3)"
+		@select-page="selectPageNumber" 
+	/>
 </template>
 
 <script>
+import axios from 'axios'
 import Spinner from '@/components/shared/Spinner' 
 import Title from '@/components/shared/Title'
 import Select from '@/components/shared/Select'
 import GameDeal from '@/components/home/GameDeal'
-import axios from 'axios'
+import Pages from '@/components/shared/Pages'
 
 export default {
 	name: 'Home',
@@ -26,7 +36,8 @@ export default {
 		Spinner,
 		Title,
 		Select,
-		GameDeal
+		GameDeal,
+		Pages
 	},
 	data() {
 		return {
@@ -40,6 +51,10 @@ export default {
 	methods: {
 		selectPageSize(option) {
 			this.pageSize = option
+			this.getGameDeals()
+		},
+		selectPageNumber(page) {
+			this.pageNumber = page
 			this.getGameDeals()
 		},
 		getGameDeals() {
@@ -64,9 +79,5 @@ export default {
 .filter__options {
   display: inline-block;
   margin-bottom: 0.5em;
-}
-
-.yo {
-  color: black;
 }
 </style>

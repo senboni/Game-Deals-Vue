@@ -82,6 +82,10 @@ a {
 	color: var(--clr-gray)
 }
 
+input {
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+}
+
 @-webkit-keyframes fadeIn {
 	0% {
 		opacity: 0;
@@ -99,4 +103,29 @@ a {
 		opacity: 100;
 	}
 }
+
+@-webkit-keyframes popOut {
+	0% {
+		transform: scale(0);
+	}
+	85% {
+		transform: scale(1.4);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes popOut {
+	0% {
+		transform: scale(0);
+	}
+	85% {
+		transform: scale(1.4);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
 </style>
