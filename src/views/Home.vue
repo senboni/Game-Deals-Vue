@@ -11,9 +11,8 @@
 	<div v-if="loading === true">
 		<Spinner />
 	</div>
-	<template v-else>
-		<GameDeal v-for="deal in deals" :key="deal.dealID" :deal="deal" />
-	</template>
+	
+	<GameDeal v-for="deal in deals" :key="deal.dealID" :deal="deal" />
 
 	<Pages :currentPage="Number(pageNumber)" 
 		:numberOfPages="Number(60)"
@@ -44,7 +43,7 @@ export default {
 			loading: false,
 			pageNumber: "1",
 			pageSize: Number,
-			sizeOptions: ["5", "10", "15"],
+			sizeOptions: ["15", "30", "50"],
 			deals: []
 		}
 	},

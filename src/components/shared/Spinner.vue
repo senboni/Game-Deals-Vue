@@ -12,21 +12,25 @@ export default {
 
 <style>
 .spinner-container {
-	margin: 30vh auto;
+	--spinner-height: 5rem;
+	--spinner-width: 5rem;
+
+	position: fixed;
+	left: 50%;
+	top: calc(50% - var(--spinner-height)/2);
 }
 
 .spinner,
 .spinner:after {
 	border-radius: 50%;
-	width: 10em;
-	height: 10em;
+	height: var(--spinner-height);
+	width: var(--spinner-width);
 }
+
 .spinner {
-	margin: 0 auto;
-	font-size: 0.5rem;
 	position: relative;
 	
-	border: 6px solid var(--clr-dark__white);
+	border: 6px solid var(--clr-silver);
 	border-left-color: var(--clr-purple);
 
 	-webkit-transform: translateZ(0);
