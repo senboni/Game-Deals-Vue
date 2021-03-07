@@ -24,7 +24,16 @@
 		</div>
 
 		<label for="enterPageInput">Enter Page</label>
-		<input id="enterPageInput" type="number" min="1" :max="numberOfPages" />
+		<input id="enterPageInput"
+			type="number" min="1" :max="numberOfPages"
+			v-model.number="inputPageNumber"
+			@keyup.enter="enterInputPage(inputPageNumber)"
+		/>
+		<button v-if="isInFullPagesSpan(inputPageNumber)" 
+			@click="enterInputPage(inputPageNumber)"
+		>
+			<i class="fas fa-check"></i>
+		</button>
 	</div>
 </template>
 
@@ -37,12 +46,31 @@ export default {
 		showPagesOffset: Number
 	},
 	emits: ['select-page'],
+	data() {
+		return {
+			inputPageNumber: ""
+		}
+	},
 	methods: {
 		gotoPage(pageNum) {
 			this.$emit('select-page', pageNum)
 		},
+		enterInputPage(pageNum) {
+			var inputElem = document.getElementById('enterPageInput')
+
+			if(this.isInFullPagesSpan(pageNum)) {
+				this.inputPageNumber = ""
+				inputElem.blur()
+				this.gotoPage(pageNum)
+			} else {
+				inputElem.focus()
+			}
+		},
 		isInPagesSpan(number) {
 			return number > 1 && number < this.numberOfPages
+		},
+		isInFullPagesSpan(number) {
+			return number >= 1 && number <= this.numberOfPages
 		}
 	},
 	computed: {
@@ -102,17 +130,45 @@ export default {
 	padding: 0.75em;
 }
 
+label:hover {
+	cursor: pointer;
+}
+
 input {
 	max-width: 4em;
-	background: var(--clr-dark__white);
 	color: var(--clr-light__gray);
-	border-color: transparent;
-	border-radius: 10px;
+	border: transparent;
+	border-radius: 999px;
 	font-weight: 600;
 	font-size: 1rem;
 }
 
+input:hover {
+	background: var(--clr-silver);
+	color: var(--clr-gray);
+}
+
 input:focus {
-	outline-color: var(--clr-silver);
+	outline: none;
+}
+
+button {
+	border: none;
+	border-radius: 999px;
+	width: 3em;
+	background: transparent;
+	color: var(--clr-purple);
+	animation: popOut 0.3s ease-in;
+	outline: none;
+}
+
+button:hover {
+	cursor: pointer;
+	background: var(--clr-silver);
+}
+
+button:active {
+	background: var(--clr-light__gray);
+	color: var(--clr-dark__white);
 }
 </style>
