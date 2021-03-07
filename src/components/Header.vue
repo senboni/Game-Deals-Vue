@@ -21,6 +21,14 @@ header {
     font-weight: 800;
 }
 
+@media (min-width: 960px) {
+	header {
+		max-width: 960px;
+		margin: 0 auto;
+		padding: 0 1rem;
+	}
+}
+
 nav {
     display: flex;
     justify-content: space-between;

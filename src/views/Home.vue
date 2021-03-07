@@ -43,7 +43,7 @@ export default {
 			loading: false,
 			pageNumber: "1",
 			pageSize: Number,
-			sizeOptions: ["15", "30", "50"],
+			sizeOptions: ["10", "15", "25"],
 			deals: []
 		}
 	},
