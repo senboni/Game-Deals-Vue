@@ -1,5 +1,5 @@
 <template>
-  <div class="title__text" :style="{ 'font-size': fontSize}">
+  <div class="title__text">
     {{text}}
   </div>
 </template>
@@ -8,8 +8,7 @@
 export default {
 	name: 'Header',
 	props: {
-		text: String,
-		fontSize: String
+		text: String
 	}
 }
 </script>
@@ -17,9 +16,10 @@ export default {
 <style scoped>
 .title__text {
   font-weight: 600;
+  font-size: 1.1rem;
   color: var(--clr-light__gray);
-  margin: 3rem 0 2rem 0;
-  padding: 0 1rem;
+  margin: 2rem 0 1.5rem 0;
+  padding: 0 0.5rem;
 }
 
 .title__text::before {
