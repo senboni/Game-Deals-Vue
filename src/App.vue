@@ -128,4 +128,22 @@ input {
 	}
 }
 
+@-webkit-keyframes slideInNav {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInNav {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
 </style>

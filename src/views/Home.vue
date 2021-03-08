@@ -1,5 +1,5 @@
 <template>
-	<Title text="Today's Deals" fontSize="1.5rem" />
+	<Title text="Today's Deals" />
 
 	<div class="filter__options">
 		<Select :title="'Per Page'"

@@ -100,6 +100,8 @@ export default {
 <style scoped>
 .container {
 	display: flex;
+	flex-wrap: wrap;
+
 	align-items: center;
 	color: var(--clr-silver);
 	font-weight: 600;
