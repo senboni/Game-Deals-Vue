@@ -1,6 +1,6 @@
 <template>
 	<header>
-		<div class="title">
+		<div class="logo">
 			<i>
 				<span>GAME</span>
 				<span>DEALS</span>
@@ -9,7 +9,7 @@
 
 		<i @click="toggleNav" id="hamburger" :class="[navMenu ? 'hide' : '', 'fas fa-bars']"></i>
 
-		<div :style="[navMenu ? 'transform: translateX(0)' : '']" @click="toggleNav" id="closeNav"></div>
+		<div :style="[navMenu ? 'transform: translateX(0)' : '']" @click="toggleNav" id="closeNavArea"></div>
 		<nav :style="[navMenu ? 'transform: translateX(0)' : '']">
 			<i class="fas fa-arrow-right nav-x"></i>
 			<router-link @click="toggleNav" to="/">Home</router-link>
@@ -38,10 +38,6 @@ export default {
 </script>
 
 <style scoped>
-.show {
-	display: initial;
-}
-
 .hide {
 	display: none;
 }
@@ -63,17 +59,17 @@ header {
 	}
 }
 
-.title {
+.logo {
 	font-size: 2rem;
 }
 
-.title span:first-child {
+.logo span:first-child {
 	color: var(--clr-purple);
 	background: var(--clr-dark__white);
 	padding: 0 0.25rem 0 0.5rem;
 }
 
-.title span:last-child {
+.logo span:last-child {
 	color: var(--clr-dark__white);
 	background: var(--clr-gray);
 	padding: 0 0.5rem 0 0.25rem;
@@ -82,9 +78,14 @@ header {
 #hamburger {
 	font-size: 2rem;
 	animation: fadeIn 0.5s ease-in-out;
+	border: 2px solid transparent;
 }
 
-#closeNav {
+#hamburger:hover {
+	cursor: pointer;
+}
+
+#closeNavArea {
 	z-index: 9;
 	position: fixed;
 	top: 0;
@@ -104,7 +105,6 @@ nav {
 	right: 0;
 	transform: translateX(114%);
 	transition: transform 0.25s ease-in-out;
-
 	display: flex;
 	flex-direction: column;
 	white-space: nowrap;
@@ -131,6 +131,11 @@ nav a {
 	border-radius: var(--border-radius);
 }
 
+nav a:hover {
+	color: var(--clr-purple);
+	background: rgba(0, 0, 0, 0.2);
+}
+
 nav a.router-link-exact-active {
 	color: var(--clr-purple);
 }
@@ -141,14 +146,11 @@ nav a.router-link-exact-active {
 	}
 
 	nav {
-		position: initial;
-		display: flex;
-		flex-direction: row;
-		white-space: nowrap;
 		overflow: hidden;
+		position: initial;
+		flex-direction: row;
 		font-size: 1.5rem;
 		background: transparent;
-		animation: none;
 		transform: translateX(0);
 		padding: 0;
 	}
@@ -157,27 +159,20 @@ nav a.router-link-exact-active {
 		display: none;
 	}
 
-	#closeNav {
+	#closeNavArea {
 		display: none;
 	}
 
 	nav a {
 		color: var(--clr-light__gray);
-		overflow: hidden;
-		text-overflow: ellipsis;
 		font-size: 1.25rem;
 		font-weight: 600;
 		padding: 0.5rem 1rem;
-		border-radius: var(--border-radius);
 	}
 
 	nav a:hover {
 		color: var(--clr-gray);
 		background: var(--clr-dark__white);
-	}
-
-	nav a.router-link-exact-active {
-		color: var(--clr-purple);
 	}
 }
 </style>
