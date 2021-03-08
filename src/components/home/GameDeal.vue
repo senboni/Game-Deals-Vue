@@ -20,19 +20,21 @@
 			</div>
 		</div>
 		<div :class="[expanded ? 'collapsible' : 'collapsible collapsed']">
-			<div class="details">
-			<div class="thumb" :style="thumb"></div>
-				<div class="detail">
-					<div>Release Date</div>
-					<strong>{{releaseDate}}</strong>
-				</div>
-				<div class="detail">
-					<div>Steam Rating</div>
-					<strong>{{steamRating}}</strong>
-				</div>
-				<div class="detail">
-					<div>Metacritic Score</div>
-					<strong>{{metacritic}}</strong>
+			<div class="details-container">
+				<div class="thumb" :style="thumb"></div>
+				<div class="details">
+					<div class="detail">
+						<div>Release Date</div>
+						<strong>{{releaseDate}}</strong>
+					</div>
+					<div class="detail">
+						<div>Steam Rating</div>
+						<strong>{{steamRating}}</strong>
+					</div>
+					<div class="detail">
+						<div>Metacritic Score</div>
+						<strong>{{metacritic}}</strong>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -134,6 +136,7 @@ export default {
 	align-self: end;
 	font-size: 1.25rem;
 	font-weight: 700;
+	margin-bottom: 1rem;
 }
 
 .price-heading {
@@ -172,10 +175,21 @@ export default {
 	font-weight: 600;
 }
 
+.details-container {
+	display: grid;
+	grid-template-columns: 20% 1fr;
+}
+
 .details {
 	display: grid;
-	grid-template-columns: 10% 45% 45%;
+	grid-template-columns: 1fr;
 	margin-top: 1em;
+}
+
+@media (min-width: 660px) {
+	.details {
+		grid-template-columns: 1fr 1fr;
+	}
 }
 
 .detail {
@@ -186,6 +200,8 @@ export default {
 
 .detail * {
 	padding: 0.25em 0 1em 0.75em;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .collapsible {
@@ -200,8 +216,7 @@ export default {
 }
 
 .thumb {
-	grid-area: 1 / 1 / 3 / 2;
-
+	margin-right: 0.5rem;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
