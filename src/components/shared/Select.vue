@@ -1,11 +1,15 @@
 <template>
 	<div id="custom-select" class="noselect">
-		<div class="container" @click="toggleExpand">
+		<div :class="['container', expanded ? '' : 'light']" @click="toggleExpand">
 			<div class="selected">{{title}}: {{selected}}</div>
-			<i :class="[expanded ? 'rotated' : '', 'fas fa-chevron-down rotate']"></i>
+			<i :class="['fas fa-chevron-down rotate', expanded ? 'rotated' : '']"></i>
 		</div>
-		<div :class="[expanded ? 'options' : 'options collapsed']">
-			<div v-for="option in optionsExceptSelected" :key="option" @click="selectOption(option)" class="option">
+		<div :class="['options', expanded ? '' : 'collapsed']">
+			<div v-for="option in optionsExceptSelected" 
+				:key="option" 
+				@click="selectOption(option)" 
+				class="option"
+			>
 				{{option}}
 			</div>
 		</div>
@@ -70,17 +74,28 @@ export default {
 
 .container:hover, .option:hover {
 	cursor: pointer;
-	background: var(--clr-gray);
+	background: var(--clr-light__gray);
 	color: var(--clr-dark__white);
 }
 
 .container {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	padding: 0.25em 0.75em;
+	background: var(--clr-gray);
+	color: var(--clr-dark__white);
+	border-radius: var(--border-radius);
+}
+
+.light {
 	background: var(--clr-dark__white);
 	color: var(--clr-gray);
-	border-radius: var(--border-radius);
+}
+
+.light:hover {
+	background: var(--clr-light__gray);
+	color: var(--clr-dark__white);
 }
 
 .selected {
@@ -94,7 +109,7 @@ export default {
 .options {
 	position: absolute;
 	margin-top: 0.25em;
-	background: var(--clr-dark__white);
+	background: var(--clr-gray);
 	border-radius: var(--border-radius);
 	box-shadow: var(--box-shadow);
 
@@ -108,20 +123,20 @@ export default {
 }
 
 .option {
-	color: var(--clr-light__gray);
-	padding: 0.125em 0.75em;
+	color: var(--clr-dark__white);
+	padding: 0.25em 0.75em;
 }
 
 .option:first-child {
 	border-top-left-radius: var(--border-radius);
 	border-top-right-radius: var(--border-radius);
-	padding-top: 0.25em;
+	padding-top: 0.5em;
 }
 
 .option:last-child {
 	border-bottom-left-radius: var(--border-radius);
 	border-bottom-right-radius: var(--border-radius);
-	padding-bottom: 0.25em;
+	padding-bottom: 0.5em;
 }
 
 .rotate {

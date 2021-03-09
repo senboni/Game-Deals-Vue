@@ -43,7 +43,7 @@ export default {
 			loading: false,
 			pageNumber: "1",
 			pageSize: Number,
-			sizeOptions: ["10", "15", "25"],
+			sizeOptions: ["10", "15", "20", "30"],
 			deals: []
 		}
 	},
@@ -78,5 +78,6 @@ export default {
 .filter__options {
   display: inline-block;
   margin-bottom: 0.5em;
+  font-size: 1.05rem;
 }
 </style>
