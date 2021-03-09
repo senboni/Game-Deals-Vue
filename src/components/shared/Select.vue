@@ -23,7 +23,7 @@ export default {
 		title: String,
 		options: Array
 	},
-	emits: ['select-option'],
+	emits: ['select-option', 'select-default'],
 	data() {
 		return {
 			selected: "",
@@ -32,7 +32,7 @@ export default {
 	},
 	mounted() {
 		this.selectDefault()
-		this.optionSelected(this.defaultOption)
+		this.$emit('select-default', this.defaultOption)
 	},
 	methods: {
 		optionSelected(option) {

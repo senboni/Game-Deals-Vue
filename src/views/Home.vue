@@ -5,10 +5,12 @@
 		<Select :title="'Per Page'"
 			:options="sizeOptions"
 			@select-option="selectPageSize"
+			@select-default="defaultPageSize"
 		/>
 		<Select :title="'Sort By'"
 			:options="sortOptions"
 			@select-option="selectSort"
+			@select-default="defaultSort"
 		/>
 	</div>
 
@@ -46,21 +48,30 @@ export default {
 		return {
 			loading: false,
 			pageNumber: "1",
-			pageSize: "10",
+			pageSize: Number,
 			sizeOptions: ["10", "15", "20", "30"],
-			sortBy: "Deal Rating",
+			sortBy: String,
 			sortOptions: ["Deal Rating", "Title", "Savings", "Price", "Metacritic", "Release"],
 			deals: []
 		}
+	},
+	mounted() {
+		this.getGameDeals()
 	},
 	methods: {
 		selectPageSize(option) {
 			this.pageSize = option
 			this.getGameDeals()
 		},
+		defaultPageSize(option) {
+			this.pageSize = option
+		},
 		selectSort(option) {
 			this.sortBy = option
 			this.getGameDeals()
+		},
+		defaultSort(option) {
+			this.sortBy = option
 		},
 		selectPageNumber(page) {
 			this.pageNumber = page
