@@ -37,6 +37,18 @@ export default {
 	box-sizing: border-box;
 }
 
+@media (prefers-color-scheme: dark) {
+	* {
+		--clr-black: #242527;
+		--clr-gray: #dce0e4;
+		--clr-light__gray: #84888f;
+		--clr-silver: #4a4e53;
+		--clr-dark__white: #4a4e53;
+		--clr-white: #242527;
+		--clr-purple: #7a00ff;
+	}
+}
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */

@@ -65,7 +65,6 @@ header {
 
 .logo span:first-child {
 	color: var(--clr-purple);
-	background: var(--clr-dark__white);
 	padding: 0 0.25rem 0 0.5rem;
 }
 
