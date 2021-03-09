@@ -139,6 +139,7 @@ label:hover {
 input {
 	max-width: 4em;
 	color: var(--clr-light__gray);
+	background: transparent;
 	border: transparent;
 	border-radius: 999px;
 	font-weight: 600;

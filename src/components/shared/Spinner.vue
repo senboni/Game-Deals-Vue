@@ -16,7 +16,7 @@ export default {
 	--spinner-width: 5rem;
 
 	position: fixed;
-	left: 50%;
+	left: calc(50% - var(--spinner-width)/2);
 	top: calc(50% - var(--spinner-height)/2);
 }
 
@@ -28,16 +28,8 @@ export default {
 }
 
 .spinner {
-	position: relative;
-	
 	border: 6px solid var(--clr-silver);
 	border-left-color: var(--clr-purple);
-
-	-webkit-transform: translateZ(0);
-	-ms-transform: translateZ(0);
-	-webkit-animation: spin 1.3s infinite linear;
-	transform: translateZ(0);
-
 	animation: spin 1.3s infinite linear;
 }
 
