@@ -6,6 +6,10 @@
 			:options="sizeOptions"
 			@select-option="selectPageSize"
 		/>
+		<Select :title="'Sort By'"
+			:options="sortOptions"
+			@select-option="selectSort"
+		/>
 	</div>
 
 	<div v-if="loading === true">
@@ -42,14 +46,20 @@ export default {
 		return {
 			loading: false,
 			pageNumber: "1",
-			pageSize: Number,
+			pageSize: "10",
 			sizeOptions: ["10", "15", "20", "30"],
+			sortBy: "Deal Rating",
+			sortOptions: ["Deal Rating", "Title", "Savings", "Price", "Metacritic", "Release"],
 			deals: []
 		}
 	},
 	methods: {
 		selectPageSize(option) {
 			this.pageSize = option
+			this.getGameDeals()
+		},
+		selectSort(option) {
+			this.sortBy = option
 			this.getGameDeals()
 		},
 		selectPageNumber(page) {
@@ -59,7 +69,7 @@ export default {
 		getGameDeals() {
 			this.loading = true
 
-			axios.get(`https://www.cheapshark.com/api/1.0/deals?pageNumber=${this.pageNumber}&pageSize=${this.pageSize}`)
+			axios.get(`https://www.cheapshark.com/api/1.0/deals?pageNumber=${this.pageNumber}&pageSize=${this.pageSize}&sortBy=${this.sortBy}`)
 				.then(res => {
 					this.deals = res.data
 				})
@@ -76,8 +86,16 @@ export default {
 
 <style>
 .filter__options {
-  display: inline-block;
+  display: flex;
   margin-bottom: 0.5em;
   font-size: 1.05rem;
+}
+
+.filter__options > * {
+	margin-right: 0.5rem;
+}
+
+.filter__options >:last-child {
+	margin-right: 0;
 }
 </style>

@@ -39,7 +39,7 @@ export default {
 			this.$emit('select-option', option)
 		},
 		selectDefault() {
-			this.selected = this.defaultOption.toString()
+			this.selected = this.defaultOption
 		},
 		selectOption(option) {
 			this.toggleExpand()
@@ -52,7 +52,7 @@ export default {
 	},
 	computed: {
 		defaultOption() {
-			return this.options[0]
+			return this.options[0].toString()
 		},
 		optionsExceptSelected() {
 			return this.options.filter(x => x != this.selected)
