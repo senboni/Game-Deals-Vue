@@ -14,8 +14,9 @@
 			<i class="fas fa-arrow-right nav-x"></i>
 			<router-link @click="toggleNav" to="/">Home</router-link>
 			<router-link @click="toggleNav" to="/about">About</router-link>
-			<router-link @click="toggleNav" to="/help">Help</router-link>
-			<router-link @click="toggleNav" to="/contact">Contact</router-link>
+			<label for="themeCheckbox">Dark Theme
+				<i id="themeCheckbox" class="far fa-moon"></i>
+			</label>
 		</nav>
 		
 	</header>
@@ -109,12 +110,11 @@ nav {
 	white-space: nowrap;
 	text-align: end;
 	font-size: 1.5rem;
-	background: rgba(0, 0, 0, 0.7);
 	padding: 2rem;
+	background: rgba(0, 0, 0, 0.7);
 }
 
-nav .nav-x {
-	color: var(--clr-dark__white);
+.nav-x {
 	font-size: 1.5rem;
 	position: absolute;
 	left: -2rem;
@@ -122,7 +122,15 @@ nav .nav-x {
 	pointer-events: none;
 }
 
-nav a {
+:root[data-theme=dark] .nav-x {
+	color: var(--clr-purple);
+}
+
+:root[data-theme=light] .nav-x {
+	color: var(--clr-dark__white);
+}
+
+nav a, nav label {
 	color: var(--clr-dark__white);
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -130,13 +138,18 @@ nav a {
 	border-radius: var(--border-radius);
 }
 
-nav a:hover {
+nav a:hover, nav label:hover {
 	color: var(--clr-purple);
 	background: rgba(0, 0, 0, 0.2);
+	cursor: pointer;
 }
 
 nav a.router-link-exact-active {
 	color: var(--clr-purple);
+}
+
+nav input[type=checkbox] {
+	font-size: 1rem;
 }
 
 @media (min-width: 760px) {
@@ -162,14 +175,14 @@ nav a.router-link-exact-active {
 		display: none;
 	}
 
-	nav a {
+	nav a, nav label {
 		color: var(--clr-light__gray);
 		font-size: 1.25rem;
 		font-weight: 600;
 		padding: 0.5rem 1rem;
 	}
 
-	nav a:hover {
+	nav a:hover, nav label:hover {
 		color: var(--clr-gray);
 		background: var(--clr-dark__white);
 	}
