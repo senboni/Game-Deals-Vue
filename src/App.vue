@@ -71,10 +71,10 @@ export default {
 	--clr-black: #242527;
 	--clr-gray: #dce0e4;
 	--clr-light__gray: #84888f;
-	--clr-silver: #4a4e53;
-	--clr-dark__white: #4a4e53;
+	--clr-silver: #131315;
+	--clr-dark__white: #2c2d2f;
 	--clr-white: #242527;
-	--clr-purple: #7a00ff;
+	--clr-purple: #9647ff;
 }
 
 .noselect {
