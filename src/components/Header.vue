@@ -14,8 +14,9 @@
 			<i class="fas fa-arrow-right nav-x"></i>
 			<router-link @click="toggleNav" to="/">Home</router-link>
 			<router-link @click="toggleNav" to="/about">About</router-link>
-			<label for="themeCheckbox">Dark Theme
-				<i id="themeCheckbox" class="far fa-moon"></i>
+			<label @click="toggleTheme">
+				{{theme === 'light' ? 'Dark' : 'Light'}} Theme
+				<i id="themeCheckbox" :class="[theme === 'light' ? 'fa-moon' : 'fa-sun', 'fas']"></i>
 			</label>
 		</nav>
 		
@@ -25,6 +26,10 @@
 <script>
 export default {
 	name: 'Header',
+	props: {
+		theme: String
+	},
+	emits: ['toggle-theme'],
 	data() {
 		return {
 			navMenu: false
@@ -33,6 +38,9 @@ export default {
 	methods: {
 		toggleNav() {
 			this.navMenu = !this.navMenu
+		},
+		toggleTheme() {
+			this.$emit('toggle-theme')
 		}
 	}
 }

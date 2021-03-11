@@ -1,9 +1,9 @@
 <template>
-  <Header />
-  <main>
-    <router-view/>
-  </main>
-  <Footer />
+	<Header :theme="theme" @toggle-theme="toggleTheme" />
+	<main>
+		<router-view/>
+	</main>
+	<Footer />
 </template>
 
 <script>
@@ -11,11 +11,39 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default {
-  name: 'App',
-  components: {
-    Header,
-    Footer
-  }
+	name: 'App',
+	components: {
+		Header,
+		Footer
+	},
+	data() {
+		return {
+			theme: String
+		}
+	},
+	mounted() {
+		if(localStorage.theme) {
+			this.theme = localStorage.theme
+		} else {
+			this.theme = this.defaultTheme
+		}
+	},
+	methods: {
+		toggleTheme() {
+			this.theme === "dark" ? this.theme = "light" : this.theme = "dark"
+		}
+	},
+	watch: {
+		theme(newTheme) {
+			localStorage.theme = newTheme
+			document.documentElement.dataset.theme = newTheme
+		}
+	},
+	computed: {
+		defaultTheme() {
+			return "light"
+		}
+	}
 }
 </script>
 
