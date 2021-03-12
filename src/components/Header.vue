@@ -14,7 +14,7 @@
 			<i class="fas fa-arrow-right nav-x"></i>
 			<router-link @click="toggleNav" to="/">Home</router-link>
 			<router-link @click="toggleNav" to="/about">About</router-link>
-			<label @click="toggleTheme">
+			<label @click="toggleTheme" class="noselect">
 				{{theme === 'light' ? 'Dark' : 'Light'}} Theme
 				<i id="themeCheckbox" :class="[theme === 'light' ? 'fa-moon' : 'fa-sun', 'fas']"></i>
 			</label>
