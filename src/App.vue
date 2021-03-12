@@ -1,9 +1,9 @@
 <template>
-  <Header />
-  <main>
-    <router-view/>
-  </main>
-  <Footer />
+	<Header :theme="theme" @toggle-theme="toggleTheme" />
+	<main>
+		<router-view/>
+	</main>
+	<Footer />
 </template>
 
 <script>
@@ -11,11 +11,39 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export default {
-  name: 'App',
-  components: {
-    Header,
-    Footer
-  }
+	name: 'App',
+	components: {
+		Header,
+		Footer
+	},
+	data() {
+		return {
+			theme: String
+		}
+	},
+	mounted() {
+		if(localStorage.theme) {
+			this.theme = localStorage.theme
+		} else {
+			this.theme = this.defaultTheme
+		}
+	},
+	methods: {
+		toggleTheme() {
+			this.theme === "dark" ? this.theme = "light" : this.theme = "dark"
+		}
+	},
+	watch: {
+		theme(newTheme) {
+			localStorage.theme = newTheme
+			document.documentElement.dataset.theme = newTheme
+		}
+	},
+	computed: {
+		defaultTheme() {
+			return "light"
+		}
+	}
 }
 </script>
 
@@ -24,6 +52,12 @@ export default {
 	--border-radius: 10px;
 	--box-shadow: 4px 3px 15px 0px var(--clr-silver);
 
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+*[data-theme=light] {
 	--clr-black: #242527;
 	--clr-gray: #4a4e53;
 	--clr-light__gray: #84888f;
@@ -31,10 +65,16 @@ export default {
 	--clr-dark__white: #dce0e4;
 	--clr-white: #ecf0f5;
 	--clr-purple: #7a00ff;
+}
 
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+*[data-theme=dark] {
+	--clr-black: #242527;
+	--clr-gray: #dce0e4;
+	--clr-light__gray: #84888f;
+	--clr-silver: #131315;
+	--clr-dark__white: #2c2d2f;
+	--clr-white: #242527;
+	--clr-purple: #9647ff;
 }
 
 .noselect {

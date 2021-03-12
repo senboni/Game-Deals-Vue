@@ -1,22 +1,26 @@
 <template>
 	<div :class="[expanded ? 'game-deal expanded' : 'game-deal']" tabindex="0">
-		<div class="heading" @click="showDetails">
-			<div class="title">
-				{{deal.title}}
-			</div>
-			<div v-if="onSale" class="price-heading">
-				<div class="price">
-					<del>{{normalPrice}}</del>
+		<div class="heading__container">
+			<i :class="['arrow fas', expanded ? 'fa-sort-up' : 'fa-sort-down']"></i>
+			<div class="heading" @click="showDetails">
+				<div class="title">
+					{{deal.title}}
 				</div>
-				<div class="discount">
-					{{discount}}
+
+				<div v-if="onSale" class="price-heading">
+					<div class="price">
+						<del>{{normalPrice}}</del>
+					</div>
+					<div class="discount">
+						{{discount}}
+					</div>
+					<div class="sale-price gray-text">
+						{{salePrice}}
+					</div>
 				</div>
-				<div class="sale-price gray-text">
-					{{salePrice}}
+				<div v-else class="sale-price gray-text">
+					{{normalPrice}}
 				</div>
-			</div>
-			<div v-else class="sale-price gray-text">
-				{{normalPrice}}
 			</div>
 		</div>
 		<div :class="[expanded ? 'collapsible' : 'collapsible collapsed']">
@@ -112,7 +116,7 @@ export default {
 }
 
 .game-deal:focus {
-	outline-color: var(--clr-silver);
+	outline: none;
 }
 
 .expanded {
@@ -121,6 +125,39 @@ export default {
 
 .expanded:hover {
 	background: var(--clr-dark__white);
+}
+
+.heading__container {
+	display: grid;
+	grid-template-columns: auto 1fr;
+}
+
+.arrow {
+	align-self: center;
+	font-size: 2rem;
+	margin-right: 1.5rem;
+}
+
+.fa-sort-down {
+	transform: translateY(-25%);
+	color: var(--clr-silver);
+}
+
+.fa-sort-up {
+	transform: translateY(25%);
+	color: var(--clr-silver);
+}
+
+*[data-theme=dark] .fa-sort-down {
+	color: var(--clr-dark__white);
+}
+
+*[data-theme=dark] .fa-sort-up {
+	color: var(--clr-light__gray);
+}
+
+.game-deal:hover .arrow {
+	color: var(--clr-gray);
 }
 
 .heading {
@@ -134,7 +171,7 @@ export default {
 
 .title {
 	align-self: end;
-	font-size: 1.25rem;
+	font-size: 1.15rem;
 	font-weight: 700;
 	margin-bottom: 1rem;
 }
