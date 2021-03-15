@@ -18,7 +18,7 @@ export default {
 	},
 	data() {
 		return {
-			theme: String
+			theme: ""
 		}
 	},
 	mounted() {
@@ -180,6 +180,30 @@ input {
 @keyframes slideInNav {
 	0% {
 		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@-webkit-keyframes slideInSearch {
+	0% {
+		transform: translateX(-100%);
+	}
+	85% {
+		transform: translateX(15%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideInSearch {
+	0% {
+		transform: translateX(-100%);
+	}
+	85% {
+		transform: translateX(15%);
 	}
 	100% {
 		transform: translateX(0);
