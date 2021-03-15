@@ -107,6 +107,7 @@ export default {
 }
 
 .options {
+	z-index: 10;
 	position: absolute;
 	margin-top: 0.25em;
 	background: var(--clr-gray);

@@ -106,6 +106,7 @@ export default {
 <style scoped>
 .game-deal {
 	padding: 1.25em;
+	margin-bottom: 0.25rem;
 	border-radius: var(--border-radius);
 
 	animation: fadeIn 0.3s ease-in-out;
