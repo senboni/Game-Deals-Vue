@@ -6,7 +6,6 @@
 				<div class="title">
 					{{deal.title}}
 				</div>
-
 				<div v-if="onSale" class="price-heading">
 					<div class="price">
 						<del>{{normalPrice}}</del>
@@ -108,7 +107,6 @@ export default {
 	padding: 1.25em;
 	margin-bottom: 0.25rem;
 	border-radius: var(--border-radius);
-
 	animation: fadeIn 0.3s ease-in-out;
 }
 

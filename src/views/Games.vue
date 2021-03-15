@@ -1,21 +1,30 @@
 <template>
 	<SearchBar @submit-search="submitSearch" />
-	<GameInfo 
-		v-for="game in games"
-		:key="game.gameID"
-		:game="game"
-	/>
+
+	<div v-if="loading === true">
+		<Spinner />
+	</div>
+
+	<div class="games-container">
+		<GameInfo
+			v-for="game in games"
+			:key="game.gameID"
+			:game="game"
+		/>
+	</div>
 </template>
 
 <script>
 import axios from 'axios'
 import SearchBar from '@/components/games/SearchBar'
+import Spinner from '@/components/shared/Spinner'
 import GameInfo from '@/components/games/GameInfo'
 
 export default {
 	name: 'Games',
 	components: {
 		SearchBar,
+		Spinner,
 		GameInfo
 	},
 	data() {
@@ -53,5 +62,7 @@ export default {
 </script>
 
 <style scoped>
-
+.games-container {
+	margin-top: 3rem;
+}
 </style>
