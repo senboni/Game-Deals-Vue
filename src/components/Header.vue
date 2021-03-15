@@ -140,7 +140,7 @@ nav {
 }
 
 nav a, nav label {
-	color: var(--clr-dark__white);
+	color: var(--clr-light__gray);
 	overflow: hidden;
 	text-overflow: ellipsis;
 	padding: 0.5rem 1rem 0.5rem 5rem;
