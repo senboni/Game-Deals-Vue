@@ -13,6 +13,7 @@
 		<nav :style="[navMenu ? 'transform: translateX(0)' : '']">
 			<i class="fas fa-arrow-right nav-x"></i>
 			<router-link @click="toggleNav" to="/">Home</router-link>
+			<router-link @click="toggleNav" to="/games">Games</router-link>
 			<router-link @click="toggleNav" to="/about">About</router-link>
 			<label @click="toggleTheme" class="noselect">
 				{{theme === 'light' ? 'Dark' : 'Light'}} Theme

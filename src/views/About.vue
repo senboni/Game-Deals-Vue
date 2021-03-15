@@ -2,7 +2,7 @@
   <h3>This is an about page</h3>
 </template>
 
-<style>
+<style scoped>
 h3 {
   color: pink;
 }
